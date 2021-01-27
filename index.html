@@ -8,7 +8,13 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -17,19 +23,22 @@
             <div class="container">
                 <div class="upper-header">
                     <h1 class="app-title">IP Address Tracker</h1>
-                    <div class="search-box">
-                        <input type="text" name="search-box" placeholder="Search for any IP address or domain" />
+                    <div class="search-box flex">
+                        <input type="text" name="search-box" class="search" placeholder="Search for any IP address or domain" />
+                        <button class="btn-enter">
+                            <img src="./images/icon-arrow.svg" alt="enter">
+                        </button>
                     </div>
                 </div>
                 
-                <div class="details">
+                <div class="details flex">
                     <div class="box ip-address">
                         <p class="label">Ip address</p>
                         <h2 class="data">192.168.101.122</h2>
                     </div>
                     <div class="box ip-location">
                         <p class="label">Location</p>
-                        <h2 class="data">Nepal, Jhapa, Damak/h2>
+                        <h2 class="data">Nepal, Jhapa, Damak</h2>
                     </div>
                     <div class="box time-zone">
                         <p class="label">timezone</p>
@@ -43,7 +52,9 @@
             </div>
         </div>
         <div class="map-wrapper">
-
+            <div id="map">
+                
+            </div>
         </div>
     </div>
     <script src="./main.js"></script>

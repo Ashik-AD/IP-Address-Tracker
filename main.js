@@ -78,40 +78,4 @@
         
     })
 
-    function test(obj = {label: ''}) {
-        console.log(`hell`)
-    }
-
 })()
-
-
-    // const getLocation =  () => {
-    //     if (window.navigator.geolocation) {
-    //         window.navigator.geolocation.watchPosition(pose => {
-    //             const { latitude, longitude } = pose.coords;
-    //             console.log(latitude, longitude)
-    //             generateMap(latitude, longitude)
-    //         }, handleError);
-    //     }
-    //     else {
-    //         alert('Geolocation is not supported by this browser');
-    //         return;
-    //     }
-    // }
-    // function handleError(error) {
-    //     switch (error.code) {
-    //         case error.PERMISSION_DENIED:
-    //             console.log('User denied the permission');
-    //             break;
-    //         case error.POSITION_UNAVAILABEL:
-    //             console.log('Location is not availabel');
-    //             break;
-    //         case error.TIMEOUT:
-    //             console.log('Too many time is taken')
-    //             break;
-    //         case error.UNKNOWN_ERROR:
-    //             console.log('Unknown error, please try again later');
-    //             break;
-    //     }
-    // }
-        // window.addEventListener('DOMContentLoaded', getLocation)
