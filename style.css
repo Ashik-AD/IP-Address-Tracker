@@ -1,0 +1,136 @@
+*  {
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline-color: transparent;
+}
+
+body {
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    margin: 0 auto;
+}
+div {
+    position: relative;
+    display: block;
+}
+h1 {
+    font-weight: 500;
+}
+h2 {
+    font-weight: 400;
+}
+.flex {
+    display: flex;
+}
+.header {
+    position: relative;
+    background-image: url('./images/pattern-bg.png');
+    height: 60vh;
+}
+
+.container {
+    width: 100%;
+    padding: 0 20px;
+}
+.upper-header {
+    text-align: center;
+    padding: 20px 0;
+}
+.app-title {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.search-box ::-webkit-input-placeholder {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+}
+.search-box input {
+    width: 90%;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid #b1b1b1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+}
+.search-box button {
+    padding: 15px 20px;
+    background-color: hsl(0, 0%, 17%);
+    border: 1px solid #252525;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    border-left: none;
+}
+
+.details {
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 5px 10px;
+    box-shadow: 0 5px 16px 0 rgb(209, 209, 209);
+    z-index: 123;
+}
+.details .box {
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.details .box .label{
+    color: hsl(0, 0%, 59%);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+.details .box .data {
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: hsl(0, 0%, 17%);
+}
+.map-wrapper {
+    overflow: hidden;
+}
+#map {
+    width: 100vw;
+    height: 65vh;
+    z-index: 1;
+    overflow: hidden;
+}
+
+@media(min-width: 1200px){
+    .header {
+        height: 40vh;
+    }
+    .app-title {
+        margin: 30px auto;
+    }
+    .search-box {
+        justify-content: center;
+    }
+    .search-box input {
+        width: 40%;
+    }
+    .details {
+        flex-direction: row;
+        padding: 30px 20px;
+    }
+    .details .box {
+        width: 25%;
+    }
+    
+}
+
