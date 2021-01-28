@@ -1,4 +1,14 @@
 (function () {
+    const animatedEL = document.querySelectorAll('.animated');
+    const co = document.querySelectorAll('.co');
+
+    function removeClass() {
+        animatedEL.forEach(el => el.classList.remove('animated'));
+    }
+    function addClass() {
+        co.forEach(el => el.classList.add('animated'));
+    }
+
     async function getGeoLocation(obj = {label: ''}) {
         const request = async () => fetch(`https://geo.ipify.org/api/v1?apiKey=at_FmNvdOANhKZUU5TZhTCuYnX14uOI6${obj.label === 'ip' ? `&ipAddress=${obj.value}` : obj.label === 'domain' ? `&domain=${obj.value}` : ''}`)
             .then(res => res.json())
@@ -35,9 +45,13 @@
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoiYXNoaWsyMSIsImEiOiJja2tmNWcwbzkwMWNuMndxdDIzdjdsZ3BhIn0.1EK-0AP5umxco9EHBvRwlw'
         }).addTo(myMap);
-    
-        const marker = L.marker([lat, lon], 17).addTo(myMap);
-        marker.bindPopup('<b>I think you are here</b>').openPopup();
+        const markerIcon = L.icon({
+            iconUrl: './images/icon-location.svg',
+            iconSize: [30, 40],
+            popupAnchor: [5, -20],
+        })
+        const marker = L.marker([lat, lon],{icon: markerIcon}, 17).addTo(myMap);
+        marker.bindPopup(`<h2>I think you are here</h2> <b>Lat: ${lat}  Lng: ${lon}</b>`).openPopup();
         L.circle([lat, lon], {
             color: '#ff47a3',
             fillColor: '#CA2E55',
@@ -55,27 +69,28 @@
 
         elIp.innerHTML = ip;
         elAddress.innerHTML = address;
-        elTime.innerHTML = timeZone;
+        elTime.innerHTML = `UTC ${timeZone}`;
         elIsp.innerHTML = isp;
+        removeClass();
     }
     
 
     //Handle Search
     document.querySelector('.btn-enter').addEventListener('click', () => {
+        addClass();
         const searchBox = document.querySelector('input.search');
-        
         //Check whether it is IP or Domain
         if (/(?:\d{3}|\(\d{3}\))([.\/\.])/gi.exec(searchBox.value)) {
-            console.log('its an Ip')
             const oj = {label: 'ip', value: searchBox.value}
             getGeoLocation(oj)
         }
         else if(/[A-Za-z0-9]\.[a-z]/gi.exec(searchBox.value)) {
-            console.log('it is a domain address')
             const oj = {label: 'domain', value: searchBox.value}
             getGeoLocation(oj)
         }
-        
+        else {
+            getGeoLocation({label: ''})
+        }
     })
 
 })()
